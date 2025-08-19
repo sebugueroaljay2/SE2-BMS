@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\CustomRegisterController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BarangayClearanceController;
@@ -53,6 +54,8 @@ Route::get('/login/user', function () {
 
 // Registration page
 Route::get('/registration', fn() => Inertia::render('LoginPage/ApplyRegistration'));
+
+Route::post('/register', [CustomRegisterController::class, 'store'])->name('register');
 
 // Custom login route to override Fortify default
 Route::post('/login', [LoginController::class, 'store']);
