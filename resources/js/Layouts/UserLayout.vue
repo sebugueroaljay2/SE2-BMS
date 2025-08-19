@@ -99,7 +99,7 @@ onMounted(() => {
                             </svg>
                         </button>
                         <a href="#" class="text-xl font-bold flex items-center lg:ml-2.5">
-                            <img src="/images/bg1.jpg" alt="bg1" class="h-12 mr-2 object-cover">
+                            <img src="/Images/bg1.jpg" alt="bg1" class="h-12 mr-2 object-cover">
                             <span class="self-center whitespace-nowrap">Barangay Management System</span>
                         </a>
 
