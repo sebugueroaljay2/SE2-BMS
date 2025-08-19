@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->string('purposes')->nullable();
+            $table->text('purposes')->nullable();
             $table->string('pick_up_date')->nullable();
             $table->string('reference_no')->nullable();
             $table->string('or_no')->nullable();
