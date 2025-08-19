@@ -2,7 +2,6 @@
 
 namespace App\Http\Responses;
 
-use Spatie\Permission\Models\Role;
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 
 class LoginResponse implements LoginResponseContract
@@ -13,12 +12,9 @@ class LoginResponse implements LoginResponseContract
 
         if ($user->hasRole('admin')) {
             return redirect()->intended('/admin/dashboard');
-        }
-
-        if ($user->hasRole('user')) {
+        } else {
+            // default / normal user
             return redirect()->intended('/user/dashboard');
         }
-
-        return redirect()->intended('/'); 
     }
 }
