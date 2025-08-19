@@ -1,31 +1,23 @@
 <script setup>
 import AnotherLayout from '@/Layouts/AnotherLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
-defineProps({
-    canResetPassword: Boolean,
-    status: String,
-});
-
 const form = useForm({
+    name: '',
     email: '',
     password: '',
-    remember: false,
+    password_confirmation: '',
+    terms: false,
 });
 
 const submit = () => {
-    form.transform(data => ({
-        ...data,
-        remember: form.remember ? 'on' : '',
-    })).post(route('login'), {
-        onFinish: () => form.reset('password'),
+    form.post(route('register'), {
+        onFinish: () => form.reset('password', 'password_confirmation'),
     });
 };
 </script>
